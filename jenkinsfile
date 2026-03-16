@@ -12,7 +12,7 @@ node {
      }
    }
    stage('Docker Build & Push') {
-     docker.withRegistry('', 'docker-hub-credentials') {
+     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
       def nuestraapp = docker.build("nknAmper/nodejsapp:${gitcommit}", ".")
       nuestraapp.push()
      }
